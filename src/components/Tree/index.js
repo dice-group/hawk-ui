@@ -7,15 +7,11 @@ if (__WEBPACK__) {
     require('./style.less');
 }
 
-const DependencyTreeComponent = React.createClass({
-    getInitialState: function() {
-        return {data: ''};
-    },
+const TreeComponent = React.createClass({
     componentWillReceiveProps: function(newProps) {
-        var treeFull = newProps.data.tree_full;
-        this.setState({data: treeFull});
+        this.setState({data: newProps.data});
     },
     render: Template,
 });
 
-export default DependencyTreeComponent;
+export default TreeComponent;
