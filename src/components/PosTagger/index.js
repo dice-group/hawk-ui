@@ -19,6 +19,10 @@ const PosTaggerComponent = React.createClass({
     },
     componentWillUpdate: function(nextProps, nextState) {
         var posTags = nextState.data;
+        this.makeVisible();
+    },
+    makeVisible: function() {
+        this.getDOMNode().style.visibility = 'visible';
     },
     render: Template,
 });

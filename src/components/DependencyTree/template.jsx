@@ -3,7 +3,8 @@ import React from 'react';
 
 const render = function() {
     return (
-        <div className="row DependencyTree-component">
+        <div className="row DependencyTree-component-container">
+            <h2>Dependency Tree</h2>
             <Tree data={this.state.data}/>
         </div>
     );

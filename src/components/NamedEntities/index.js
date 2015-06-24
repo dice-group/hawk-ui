@@ -21,6 +21,12 @@ const NamedEntitiesComponent = React.createClass({
         var namedEntities = newProps.data.named_entities;
         this.setState({namedEntities: namedEntities});
     },
+    componentWillUpdate: function(nextProps, nextState) {
+        this.makeVisible();
+    },
+    makeVisible: function() {
+        this.getDOMNode().style.visibility = 'visible';
+    },
     shouldComponentUpdate: function() {
         return true;
     },

@@ -11,6 +11,12 @@ const DependencyTreeComponent = React.createClass({
     getInitialState: function() {
         return {data: ''};
     },
+    makeVisible: function() {
+        this.getDOMNode().style.visibility = 'visible';
+    },
+    componentWillUpdate: function(nextProps, nextState) {
+        this.makeVisible();
+    },
     componentWillReceiveProps: function(newProps) {
         var treeFull = newProps.data.tree_full;
         this.setState({data: treeFull});
