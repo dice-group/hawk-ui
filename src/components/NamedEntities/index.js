@@ -9,7 +9,9 @@ if (__WEBPACK__) {
 
 const NamedEntitiesComponent = React.createClass({
     getInitialState: function() {
-        return null;
+        return {
+            namedEntities: []
+        };
     },
     componentDidMount: function() {
     },

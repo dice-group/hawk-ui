@@ -7,7 +7,7 @@ const render = function() {
             <td className="NamedEntity-component-cell">{this.state.data.key}</td>
             <td className="NamedEntity-component-cell">{this.state.data.value}</td>
             <td className="NamedEntity-component-cell">
-                <input type="checkbox" checked> correct?</input>
+                <input type="checkbox"> correct?</input>
             </td>
         </tr>
     );

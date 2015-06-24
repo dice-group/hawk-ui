@@ -18,3 +18,4 @@ describe('App suite', function() {
 });
 require('./component-tree.jsx');
 require('./component-posTagger.jsx');
+require('./component-posTag.jsx');

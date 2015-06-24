@@ -10,17 +10,22 @@ if (__WEBPACK__) {
     require('./style.less');
 }
 
-const PosTaggerComponent = React.createClass({
+const posTagComponent = React.createClass({
     getInitialState: function() {
-        return {data: []};
+        return {data: ''};
+    },
+    calculateElementWidth: function() {
+    
     },
     componentWillReceiveProps: function(newProps) {
-        this.setState({data: newProps.data.POS_tags});
+        this.setState({
+            pos: newProps.pos,
+            label: newProps.label
+        });
     },
     componentWillUpdate: function(nextProps, nextState) {
-        var posTags = nextState.data;
     },
     render: Template,
 });
 
-export default PosTaggerComponent;
+export default posTagComponent;
