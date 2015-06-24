@@ -21,3 +21,4 @@ require('./component-posTagger.jsx');
 require('./component-posTag.jsx');
 require('./component-nounPhraseRecognition.jsx');
 require('./component-nounPhrase.jsx');
+require('./component-treePruning.jsx');

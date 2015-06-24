@@ -4,6 +4,7 @@ import NamedEntitiesComponent from '../NamedEntities/index.js';
 import DependencyTreeComponent from '../DependencyTree/index.js';
 import PosTagger from '../PosTagger/index.js';
 import NounPhraseRecognition from '../NounPhraseRecognition/index.js';
+import TreePruning from '../TreePruning/index.js';
 
 const render = function() {
     return (
@@ -12,6 +13,7 @@ const render = function() {
             <DependencyTreeComponent data={this.state.data}/>
             <PosTagger data={this.state.data}/>
             <NounPhraseRecognition data={this.state.data}/>
+            <TreePruning data={this.state.data}/>
         </div>
     );
 };
