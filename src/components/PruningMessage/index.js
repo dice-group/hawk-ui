@@ -10,20 +10,19 @@ if (__WEBPACK__) {
     require('./style.less');
 }
 
-const NounPhraseRecognitionComponent = React.createClass({
+const PruningMessageComponent = React.createClass({
     getInitialState: function() {
-        return {data: []};
+        return {};
     },
     componentWillReceiveProps: function(newProps) {
-        this.setState({data: newProps.data.combined_nouns});
+        this.setState({
+            label: newProps.data.label,
+            value: newProps.data.value
+        });
     },
     componentWillUpdate: function(nextProps, nextState) {
-        this.makeVisible();
-    },
-    makeVisible: function() {
-        this.getDOMNode().style.visibility = 'visible';
     },
     render: Template,
 });
 
-export default NounPhraseRecognitionComponent;
+export default PruningMessageComponent;

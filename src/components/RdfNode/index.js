@@ -10,11 +10,11 @@ if (__WEBPACK__) {
     require('./style.less');
 }
 
-const NounPhraseComponent = React.createClass({
+const RdfNodeComponent = React.createClass({
     getInitialState: function() {
         return {data: this.props.data};
     },
     render: Template,
 });
 
-export default NounPhraseComponent;
+export default RdfNodeComponent;

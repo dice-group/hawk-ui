@@ -10,12 +10,13 @@ if (__WEBPACK__) {
     require('./style.less');
 }
 
-const NounPhraseRecognitionComponent = React.createClass({
+const RdfNodesIdentificationComponent = React.createClass({
     getInitialState: function() {
-        return {data: []};
+        return {annotations: []};
     },
     componentWillReceiveProps: function(newProps) {
-        this.setState({data: newProps.data.combined_nouns});
+        this.setState({annotations: newProps.data.annotation});
+        this.setState({treeFinal: newProps.data.tree_final});
     },
     componentWillUpdate: function(nextProps, nextState) {
         this.makeVisible();
@@ -26,4 +27,4 @@ const NounPhraseRecognitionComponent = React.createClass({
     render: Template,
 });
 
-export default NounPhraseRecognitionComponent;
+export default RdfNodesIdentificationComponent;
