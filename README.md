@@ -1,4 +1,4 @@
-# Awesome hawk demo application
+# Awesome Hawk UI Application
 
 This repository contains the front-end for the [HAWK Project](http://aksw.org/projects/hawk)
 
