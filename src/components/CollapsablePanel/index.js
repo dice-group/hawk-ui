@@ -13,12 +13,17 @@ if (__WEBPACK__) {
 const CollapsablePanelComponent = React.createClass({
     getInitialState: function() {
         return {
-            isCollapsed: true
+            isCollapsed: false
         };
     },
     togglePanel: function() {
         this.setState({
             isCollapsed: !this.state.isCollapsed
+        });
+    },
+    componentDidMount: function() {
+        this.setState({
+            isCollapsed: true
         });
     },
     render: Template,

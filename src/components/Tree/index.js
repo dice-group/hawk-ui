@@ -32,7 +32,7 @@ const TreeComponent = React.createClass({
             return d.children && d.children.length > 0 ? d.children : null;
         });
         var size = {
-            width: container.offsetWidth,
+            width: container.offsetWidth > 100 ? container.offsetWidth : (screen.width * 0.7),
             height: totalNodes * 30
         };
         var tree = D3.layout.tree()
