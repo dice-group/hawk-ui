@@ -1,7 +1,7 @@
 {
-  "name": "hawkDemo",
+  "name": "hawk-ui",
   "version": "1.0.0",
-  "description": "No description yet",
+  "description": "A front-end application for HAWK -- http://aksw.org/projects/hawk",
   "main": "index.js",
   "scripts": {
     "test": "gulp test",
@@ -10,7 +10,7 @@
     "deploy": "gulp deploy"
   },
   "author": "",
-  "license": "MIT",
+  "license": "GPLv3",
   "dependencies": {
     "bootstrap": "^3.3.4",
     "d3": "^3.5.5",
