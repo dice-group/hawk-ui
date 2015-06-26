@@ -22,6 +22,9 @@ const CollapsablePanelComponent = React.createClass({
         this.setState({
             isCollapsed: true
         });
+        if(this.props.isSpecial) {
+            setTimeout(() => this.setState({isCollapsed: false}), 5000);
+        }
     },
     render: Template,
 });
