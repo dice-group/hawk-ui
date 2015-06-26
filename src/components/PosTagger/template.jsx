@@ -6,7 +6,7 @@ const render = function() {
     return (
         <div className='PosTagger-component-container'>
             <CollapsablePanel header={'POS Tagging'}>
-                <div className="row panel-group PosTagger-component">
+                <div className="panel-group PosTagger-component">
                     {this.state.data.map((it, idx) => <PosTag pos={it.POS} label={it.key} key={'pos_' + idx}/>)}
                 </div>
             </CollapsablePanel>

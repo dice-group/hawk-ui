@@ -7,7 +7,7 @@ import CollapsablePanel from '../CollapsablePanel/index.js';
 const render = function() {
     return (
         <div className="ResultPanel-component">
-            <CollapsablePanel header={'Results'}>
+            <CollapsablePanel isSpecial={true} header={'Results'}>
                 <table>
                     {this.state.pruningMessages.map((it, idx) => <PruningMessage key={'pmk_'+idx} data={it}/>)}
                 </table>

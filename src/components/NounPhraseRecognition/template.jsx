@@ -6,7 +6,7 @@ const render = function() {
     return (
         <div className="NounPhraseRecognition-component-container">
             <CollapsablePanel header={'Noun Phrase Recognition'}>
-                <table className='row'>
+                <table>
                     {this.state.data.map((it, idx) => <NounPhrase key={'npk_' + idx} data={it}/>)}
                 </table>
             </CollapsablePanel>

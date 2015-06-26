@@ -9,7 +9,12 @@ const render = function() {
             <div className="row">
                 <form>
                     Search: <input type="text" value={value} onChange={this.handleChange} size="120"/>
-                    <p className="btn btn-primary" onClick={this.submitClicked}>Submit</p>
+     
+                    <div className="SearchBar-component-round-button">
+                        <div className="SearchBar-component-round-button-circle">
+                            <a onClick={this.submitClicked} href="#" className="SearchBar-component-round-button">Submit</a>
+                        </div>
+                    </div>
                 </form>
             </div>
             <DataFetcherComponent request={this.props.value}/>

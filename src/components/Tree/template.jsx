@@ -2,7 +2,7 @@ import React from 'react';
 
 const render = function() {
     return (
-        <div className="row tree-component">
+        <div className="tree-component">
         </div>
     );
 };
