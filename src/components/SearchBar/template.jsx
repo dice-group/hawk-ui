@@ -8,11 +8,11 @@ const render = function() {
         <div className="SearchBar-component">
             <div className="row">
                 <form>
-                    Search: <input type="text" value={value} onChange={this.handleChange} size="120"/>
+                    Your question is: <input type="text" value={value} onChange={this.handleChange} size="120"/>
      
                     <div className="SearchBar-component-round-button">
                         <div className="SearchBar-component-round-button-circle">
-                            <a onClick={this.submitClicked} href="#" className="SearchBar-component-round-button">Submit</a>
+                            <p onClick={this.submitClicked} href="#" className="SearchBar-component-round-button">Submit</p>
                         </div>
                     </div>
                 </form>
