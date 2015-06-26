@@ -20,6 +20,9 @@ const SparqlQueryVisualizerComponent = React.createClass({
             base64: newProps.data,
             sparqlString: atob(newProps.data)
         });
+        var CodeMirror = document.getElementsByClassName('CodeMirror');
+        if(CodeMirror.length != 0) CodeMirror[0].parentNode.removeChild(CodeMirror[0]);
+        this.getDOMNode().innerHTML = '';
         var yasqe = Yasqe.fromTextArea(this.getDOMNode());
         yasqe.setValue(atob(newProps.data));
     },

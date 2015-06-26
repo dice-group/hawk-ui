@@ -1,6 +1,3 @@
-/*
-
-*/
 /* global __WEBPACK__ */
 import React from 'react';
 import Template from './template.jsx';
