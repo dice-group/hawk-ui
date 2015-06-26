@@ -1,6 +1,6 @@
 // react
 import React from 'react';
-import {DefaultRoute} from 'react-router';
+import {Route} from 'react-router';
 import Template from './template.jsx';
 
 const IndexPage = React.createClass({
@@ -13,6 +13,6 @@ const IndexPage = React.createClass({
     render: Template,
 });
 
-const IndexRoute = React.createElement(DefaultRoute, {name: 'home', key: 'route_default', handler: IndexPage});
+const IndexRoute = React.createElement(Route, {name: 'home', key: 'route_default', handler: IndexPage});
 
 export default IndexRoute;

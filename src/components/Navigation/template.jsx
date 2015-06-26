@@ -15,11 +15,9 @@ const render = function() {
                     </button>
                     <ReactRouter.Link to="/" className="navbar-brand">HAWK</ReactRouter.Link>
                 </div>
-
                 <div className="collapse navbar-collapse">
                     <ul className="nav navbar-nav">
-                        <li><ReactRouter.Link to="/">About</ReactRouter.Link></li>
-                        <li><ReactRouter.Link to="/demo">Demo</ReactRouter.Link></li>
+                        <li><a target="_blank" href="http://aksw.org/Projects/HAWK.html">About</a></li>
                     </ul>
                 </div>
             </div>

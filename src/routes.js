@@ -6,9 +6,9 @@ import Demo from './pages/demo/index.js';
 
 // create route array
 let routes = [
+    Demo,
     Index,
     Other,
-    Demo,
     NotFound,
 ];
 
