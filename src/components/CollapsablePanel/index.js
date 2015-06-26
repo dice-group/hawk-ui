@@ -10,7 +10,8 @@ if (__WEBPACK__) {
 const CollapsablePanelComponent = React.createClass({
     getInitialState: function() {
         return {
-            isCollapsed: false
+            isCollapsed: false,
+            isLoading: true
         };
     },
     togglePanel: function() {
@@ -23,7 +24,7 @@ const CollapsablePanelComponent = React.createClass({
             isCollapsed: true
         });
         if(this.props.isSpecial) {
-            setTimeout(() => this.setState({isCollapsed: false}), 5000);
+            setTimeout(() => this.setState({isCollapsed: false, isLoading: false}), 5000);
         }
     },
     render: Template,

@@ -31,3 +31,64 @@
     visibility: hidden;
     position: absolute;
 }
+
+.CollapsablePanel-component-loader,
+.CollapsablePanel-component-loader:before,
+.CollapsablePanel-component-loader:after {
+    background: #ffffff;
+    -webkit-animation: loader 1s infinite ease-in-out;
+    animation: loader 1s infinite ease-in-out;
+    width: 1em;
+    height: 4em;
+}
+.CollapsablePanel-component-loader:before,
+.CollapsablePanel-component-loader:after {
+    position: absolute;
+    top: 0;
+    content: '';
+}
+.CollapsablePanel-component-loader:before {
+    left: -1.5em;
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+.CollapsablePanel-component-loader {
+    display: inline-flex;  
+    text-indent: -9999em;
+    position: relative;
+    left: 50px;
+    top: 5px;
+    font-size: 5px;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+.CollapsablePanel-component-loader:after {
+    left: 1.5em;
+}
+@-webkit-keyframes loader {
+    0%,
+    80%,
+    100% {
+        box-shadow: 0 0 #ffffff;
+        height: 4em;
+    }
+    40% {
+        box-shadow: 0 -2em #ffffff;
+        height: 5em;
+    }
+}
+@keyframes loader {
+    0%,
+    80%,
+    100% {
+        box-shadow: 0 0 #ffffff;
+        height: 4em;
+    }
+    40% {
+        box-shadow: 0 -2em #ffffff;
+        height: 5em;
+    }
+}
