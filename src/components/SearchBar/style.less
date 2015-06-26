@@ -1,12 +1,17 @@
-.SearchBar-component {
+.SearchBar-component input[type="text"] {
+  padding: 10px;
+  border: solid 1px #dcdcdc;
+  transition: box-shadow 0.3s, border 0.3s;
 }
-
-.SearchBar-component-button {
+.SearchBar-component input[type="text"]:focus,
+.SearchBar-component input[type="text"].focus {
+  border: solid 1px #707070;
+  box-shadow: 0 0 5px 1px #969696;
 }
 
 .SearchBar-component-round-button {
     display: inline-block;
-    width:100px;
+    width:95px;
     margin-left: 10px;
     text-decoration:none;
 }
