@@ -1,11 +1,13 @@
 import Tree from '../Tree/index.js';
 import React from 'react';
+import CollapsablePanel from '../CollapsablePanel/index.js';
 
 const render = function() {
     return (
-        <div className="row DependencyTree-component-container">
-            <h2>Dependency Tree</h2>
-            <Tree data={this.state.data}/>
+        <div className="DependencyTree-component-container">
+            <CollapsablePanel header={'Dependency Tree'}>
+                <Tree data={this.state.data}/>
+            </CollapsablePanel>
         </div>
     );
 };

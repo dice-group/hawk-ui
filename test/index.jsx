@@ -28,3 +28,4 @@ require('./component-resultPanel.jsx');
 require('./component-pruningMessage.jsx');
 require('./component-finalResult.jsx');
 require('./component-sparqlQueryVisualizer.jsx');
+require('./component-collapsablePanel.jsx');

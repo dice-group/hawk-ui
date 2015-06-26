@@ -9,7 +9,6 @@ const render = function() {
         <div>
             <NavigationComponent/>
             <ChromeComponent>
-                <h1>HAWK demo here...</h1>
                 <SearchBarComponent/>
             </ChromeComponent>
         </div>
