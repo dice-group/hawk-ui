@@ -24,6 +24,7 @@ const SparqlQueryVisualizerComponent = React.createClass({
         if(CodeMirror.length != 0) CodeMirror[0].parentNode.removeChild(CodeMirror[0]);
         this.getDOMNode().innerHTML = '';
         var yasqe = Yasqe.fromTextArea(this.getDOMNode());
+        //TODO: set size to the SPARQL query height
         yasqe.setValue(atob(newProps.data));
     },
     render: Template,

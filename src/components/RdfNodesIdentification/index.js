@@ -15,8 +15,10 @@ const RdfNodesIdentificationComponent = React.createClass({
         return {annotations: []};
     },
     componentWillReceiveProps: function(newProps) {
-        this.setState({annotations: newProps.data.annotation});
-        this.setState({treeFinal: newProps.data.tree_final});
+        this.setState({
+            annotations: newProps.data.annotation ? newProps.data.annotation : [],
+            treeFinal: newProps.data.tree_final ? newProps.data.tree_final : {}
+        });
     },
     componentWillUpdate: function(nextProps, nextState) {
         this.makeVisible();

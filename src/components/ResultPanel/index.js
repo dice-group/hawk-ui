@@ -12,14 +12,20 @@ if (__WEBPACK__) {
 
 const ResultPanelComponent = React.createClass({
     getInitialState: function() {
-        return {pruningMessages: []};
+        return {
+            pruningMessages: [],
+            answer: {},
+            finalSparqlBase64: ''
+        };
     },
     componentWillReceiveProps: function(newProps) {
-        this.setState({pruningMessages: newProps.data.pruning_messages});
-        this.setState({cardinalityOfQuestionResults: newProps.data.cardinality_of_question_results});
-        this.setState({finalNumberOfSparqlQueries: newProps.data.final_number_of_SPARQL_queries});
-        this.setState({finalSparqlBase64: newProps.data.final_sparql_base64});
-        this.setState({answer: newProps.data.answer});
+        this.setState({
+            pruningMessages: newProps.data.pruning_messages ? newProps.data.pruning_messages : [],
+            cardinalityOfQuestionResults: newProps.data.cardinality_of_question_results ? newProps.data.cardinality_of_question_results : '',
+            finalNumberOfSparqlQueries: newProps.data.final_number_of_SPARQL_queries ? newProps.data.final_number_of_SPARQL_queries : '',
+            finalSparqlBase64: newProps.data.final_sparql_base64 ? newProps.data.final_sparql_base64 : '',
+            answer: newProps.data.answer ? newProps.data.answer : {value: []}
+        });
     },
     componentWillUpdate: function(nextProps, nextState) {
         this.makeVisible();

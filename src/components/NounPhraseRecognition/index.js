@@ -15,7 +15,7 @@ const NounPhraseRecognitionComponent = React.createClass({
         return {data: []};
     },
     componentWillReceiveProps: function(newProps) {
-        this.setState({data: newProps.data.combined_nouns});
+        this.setState({data: newProps.data.combined_nouns ? newProps.data.combined_nouns : []});
     },
     componentWillUpdate: function(nextProps, nextState) {
         this.makeVisible();

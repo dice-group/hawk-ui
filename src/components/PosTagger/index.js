@@ -15,7 +15,7 @@ const PosTaggerComponent = React.createClass({
         return {data: []};
     },
     componentWillReceiveProps: function(newProps) {
-        this.setState({data: newProps.data.POS_tags});
+        this.setState({data: newProps.data.POS_tags ? newProps.data.POS_tags : []});
     },
     componentWillUpdate: function(nextProps, nextState) {
         this.makeVisible();

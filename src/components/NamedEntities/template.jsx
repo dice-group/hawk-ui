@@ -7,7 +7,7 @@ const render = function() {
     return (
         <div className='NamedEntities-component-container'>
             <CollapsablePanel header={'Recognized Named Entities'}>
-                <table>
+                <table className="table">
                     {this.state.namedEntities.map((it, idx) => <NamedEntityComponent key={'nek_' + idx} data={it}/>)}
                 </table>
             </CollapsablePanel>

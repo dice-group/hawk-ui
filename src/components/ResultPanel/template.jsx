@@ -12,7 +12,7 @@ const render = function() {
                 <h3>SPARQL Query For The Answer</h3>
                 <p><SparqlQueryVisualizer data={this.state.finalSparqlBase64}/></p>
                 <h3>Processing Log</h3>
-                <table>
+                <table className="table">
                     {this.state.pruningMessages.map((it, idx) => <PruningMessage key={'pmk_'+idx} data={it}/>)}
                 </table>
             </CollapsablePanel>
