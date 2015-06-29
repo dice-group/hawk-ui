@@ -13,8 +13,10 @@ const TreeComponent = React.createClass({
         this.setState({data: newProps.data});
     },
     componentWillUpdate: function(nextProps, nextState) {
-        var data = nextState.data;
-        this.createTree(data);
+        if(nextState.data.hasOwnProperty('label')) {
+            var data = nextState.data;
+            this.createTree(data);
+        }
     },
     createTree: function(data) {
         var container = this.getDOMNode();

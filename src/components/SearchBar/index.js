@@ -10,7 +10,7 @@ if (__WEBPACK__) {
 
 const SearchBarComponent = React.createClass({
     getInitialState: function() {
-        return {value: 'Which actress owns Coquette Production Company?'};
+        return {value: 'What is the capital of Greece?'};
     },
     submitClicked: function() {
         var e = new Event('submit', {

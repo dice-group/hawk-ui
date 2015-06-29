@@ -145,6 +145,25 @@
             "annotations": [
                 "http://dbpedia.org/ontology/starring"
             ]
+        },
+        {
+            "label": "capital",
+            "annotations": [
+            "http://dbpedia.org/ontology/capital",
+            "http://dbpedia.org/ontology/Capital",
+            "http://dbpedia.org/ontology/capitalCountry",
+            "http://dbpedia.org/ontology/capitalCoordinates",
+            "http://dbpedia.org/ontology/capitalRegion",
+            "http://dbpedia.org/ontology/capitalPosition",
+            "http://dbpedia.org/ontology/capitalPlace",
+            "http://dbpedia.org/ontology/capitalDistrict",
+            "http://dbpedia.org/ontology/capitalMountain",
+            "http://dbpedia.org/ontology/capitalElevation",
+            "http://dbpedia.org/ontology/distanceToCapital",
+            "http://dbpedia.org/ontology/CapitalOfRegion",
+            "http://dbpedia.org/ontology/perCapitaIncomeRank",
+            "http://dbpedia.org/ontology/numberOfCapitalDeputies"
+            ]
         }
     ],
     "tree_final": {
