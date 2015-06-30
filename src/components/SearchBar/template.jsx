@@ -13,9 +13,7 @@ const render = function() {
                     <Combo items={{
                         "Which movie by the Coen brothers stars John Turturro in the role of a New York City playwright?": "Which movie by the Coen brothers stars John Turturro in the role of a New York City playwright?",
                         "Which anti-apartheid activist was born in Mvezo?":"Which anti-apartheid activist was born in Mvezo?",
-                        "Which recipients of the Victoria Cross died in the Battle of Arnhem?": "Which recipients of the Victoria Cross died in the Battle of Arnhem?",
-                        "Which birds are protected under the National Parks and Wildlife Act?":"Which birds are protected under the National Parks and Wildlife Act?",
-                        "In which city does the former main presenter of the Xposé girls live?":"In which city does the former main presenter of the Xposé girls live?"
+                        "Which recipients of the Victoria Cross died in the Battle of Arnhem?": "Which recipients of the Victoria Cross died in the Battle of Arnhem?"
                         }} onChange={this.setTheExampleQueryString}>
                     </Combo>
          
