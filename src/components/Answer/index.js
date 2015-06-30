@@ -13,7 +13,6 @@ if (__WEBPACK__) {
 const AnswerComponent = React.createClass({
     getInitialState: function() {
         return {data: {
-            value: []
         }};
     },
     componentWillReceiveProps: function(newProps) {

@@ -13,7 +13,9 @@ if (__WEBPACK__) {
 const ResultPanelComponent = React.createClass({
     getInitialState: function() {
         return {
-            answer: {}
+            answer: {
+                value: []
+            }
         };
     },
     componentWillReceiveProps: function(newProps) {

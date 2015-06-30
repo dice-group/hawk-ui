@@ -7,7 +7,9 @@ const render = function() {
     return (
         <div className="ResultPanel-component">
             <CollapsablePanel isSpecial={true} header={'Results'}>
-                <p><Answer data={this.state.answer}/></p>
+                {this.state.answer.value.map((it, idx) => {
+                    return <Answer key={'answk_'+idx} data={it}/>;
+                })}
             </CollapsablePanel>
         </div>
     );
