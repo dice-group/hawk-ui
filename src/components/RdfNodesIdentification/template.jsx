@@ -7,7 +7,6 @@ const render = function() {
     return (
         <div className="RdfNodesIdentification-component-container">
             <CollapsablePanel header={'Annotating Nodes with RDF'}>
-                <Tree data={this.state.treeFinal}/>
                 <div className="RdfNodesIdentification-component panel-group">
                     {this.state.annotations.map((it, idx) => <RdfNode key={'rnk_' + idx} data={it}/>)}
                 </div>
