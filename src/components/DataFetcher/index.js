@@ -17,6 +17,7 @@ const DataFetcherComponent = React.createClass({
         window.removeEventListener('submit', this.onChange);
     },
     onChange: function(event) {
+        console.log("event triggered");
         var query = event.target.querySelector('input[value]').value;
         this.getDataFromServer(query);
         this.setState({loading: true});
@@ -59,9 +60,8 @@ const DataFetcherComponent = React.createClass({
     pollServer: function(token) {
         var renewalIntervalId = window.setInterval(() => {
             this.getDataByToken(token);
-        }.bind(this), 5000);
+        }.bind(this), 1000);
         this.setState({renewalIntervalId: renewalIntervalId});
-        console.log("ping");
     },
     stopPollingServer: function() {
         if(this.state.renewalIntervalId > 0) {
@@ -74,6 +74,13 @@ const DataFetcherComponent = React.createClass({
         } else {
             this.setState({loading: false});
             this.stopPollingServer();
+        }
+    },
+    shouldComponentUpdate: function(nextProps, nextState) {
+        if(nextState.data == '') {
+            return false;
+        } else {
+            return true;
         }
     },
     render: Template,

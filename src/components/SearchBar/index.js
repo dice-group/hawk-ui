@@ -14,6 +14,14 @@ const SearchBarComponent = React.createClass({
             value: 'Which recipients of the Victoria Cross died in the Battle of Arnhem?'
         };
     },
+    handleEnter: function(event) {
+        if(event.keyCode == 13) {
+            event.preventDefault();
+            var searchBarNode = this.getDOMNode();
+            searchBarNode.querySelector('input[value]').value = event.target.value;
+            this.sendSubmitEvent();
+        }
+    },
     submitClicked: function() {
         this.sendSubmitEvent();
     },

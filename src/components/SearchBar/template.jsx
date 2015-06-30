@@ -9,7 +9,7 @@ const render = function() {
         <div className="SearchBar-component">
             <div className="row">
                 <form>
-                    <input type="text" value={value} onChange={this.handleChange} size="120"/>
+                    <input type="text" value={value} onKeyDown={this.handleEnter} onChange={this.handleChange} size="120"/>
                     <Combo items={{
                         "Which movie by the Coen brothers stars John Turturro in the role of a New York City playwright?": "Which movie by the Coen brothers stars John Turturro in the role of a New York City playwright?",
                         "Which anti-apartheid activist was born in Mvezo?":"Which anti-apartheid activist was born in Mvezo?",
