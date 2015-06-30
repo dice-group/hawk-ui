@@ -1,24 +1,22 @@
 /*
 
 */
-/* global __WEBPACK__ */
 import React from 'react';
 import Template from './template.jsx';
-
 // only load style when using webpack
 if (__WEBPACK__) {
     require('./style.less');
 }
 
-const ResultPanelComponent = React.createClass({
+const SparqlQueryPanelComponent = React.createClass({
     getInitialState: function() {
         return {
-            answer: {}
+            finalSparqlBase64: ''
         };
     },
     componentWillReceiveProps: function(newProps) {
         this.setState({
-            answer: newProps.data.answer ? newProps.data.answer : {value: []}
+            finalSparqlBase64: newProps.data.final_sparql_base64 ? newProps.data.final_sparql_base64 : '',
         });
     },
     componentWillUpdate: function(nextProps, nextState) {
@@ -30,4 +28,4 @@ const ResultPanelComponent = React.createClass({
     render: Template,
 });
 
-export default ResultPanelComponent;
+export default SparqlQueryPanelComponent;

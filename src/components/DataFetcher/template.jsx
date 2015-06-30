@@ -7,11 +7,15 @@ import NounPhraseRecognition from '../NounPhraseRecognition/index.js';
 import TreePruning from '../TreePruning/index.js';
 import RdfNodesIdentification from '../RdfNodesIdentification/index.js';
 import ResultPanel from '../ResultPanel/index.js';
+import ProcessingLog from '../ProcessingLog/index.js';
+import SparqlQueryPanel from '../SparqlQueryPanel/index.js';
 
 const render = function() {
     return (
         <div>
             <ResultPanel data={this.state.data}/>
+            <SparqlQueryPanel data={this.state.data}/>
+            <ProcessingLog data={this.state.data}/>
             <NamedEntitiesComponent data={this.state.data}/>
             <DependencyTreeComponent data={this.state.data}/>
             <PosTagger data={this.state.data}/>

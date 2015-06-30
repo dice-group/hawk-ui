@@ -1,24 +1,19 @@
-/*
-
-*/
-/* global __WEBPACK__ */
 import React from 'react';
 import Template from './template.jsx';
-
 // only load style when using webpack
 if (__WEBPACK__) {
     require('./style.less');
 }
 
-const ResultPanelComponent = React.createClass({
+const ProcessingLogComponent = React.createClass({
     getInitialState: function() {
         return {
-            answer: {}
+            pruningMessages: []
         };
     },
     componentWillReceiveProps: function(newProps) {
         this.setState({
-            answer: newProps.data.answer ? newProps.data.answer : {value: []}
+            pruningMessages: newProps.data.pruning_messages ? newProps.data.pruning_messages : [],
         });
     },
     componentWillUpdate: function(nextProps, nextState) {
@@ -30,4 +25,4 @@ const ResultPanelComponent = React.createClass({
     render: Template,
 });
 
-export default ResultPanelComponent;
+export default ProcessingLogComponent;
