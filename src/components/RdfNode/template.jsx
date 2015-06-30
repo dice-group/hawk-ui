@@ -5,14 +5,14 @@ import React from 'react';
 
 const render = function() {
     return (
-        <tr className="row RdfNode-component">
-            <td className="RdfNode-component-cell col-md-3">{this.state.data.label}</td>
-            {this.state.data.annotations.map((it, idx) => <td className="RdfNode-component-cell" key={'rnak_' + idx}>{it}</td>)}
-            <td className="RdfNode-component-cell pull-right">
+        <div className="row RdfNode-component panel panel-default">
+            <div className="RdfNode-component-label col-md-4">{this.state.data.label}</div>
+            <div className="RdfNode-component-uri col-md-6">{this.state.data.annotations.map((it, idx) => <span>{it}<br/></span>)}</div>
+            <div className="RdfNode-component-button-group col-md-2">
                 <a className="btn btn-success">Correct</a>
                 <a className="btn btn-danger">Wrong</a>
-            </td>
-        </tr>
+            </div>
+        </div>
     );
 };
 

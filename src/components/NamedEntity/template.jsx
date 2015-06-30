@@ -3,14 +3,14 @@ import React from 'react';
 
 const render = function() {
     return (
-        <tr className="row NamedEntity-component">
-            <td className="NamedEntity-component-cell col-md-3">{this.state.data.key}</td>
-            <td className="NamedEntity-component-cell">{this.state.data.value}</td>
-            <td className="NamedEntity-component-cell pull-right">
+        <div className="row NamedEntity-component-container panel panel-default">
+            <div className="NamedEntity-component-entity col-md-6">{this.state.data.key}</div>
+            <div className="NamedEntity-component-uri col-md-4">{this.state.data.value}</div>
+            <div className="NamedEntity-component-button-group col-md-2">
                 <a className="btn btn-success">Correct</a>
                 <a className="btn btn-danger">Wrong</a>
-            </td>
-        </tr>
+            </div>
+        </div>
     );
 };
 
