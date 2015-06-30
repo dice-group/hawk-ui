@@ -10,9 +10,15 @@ if (__WEBPACK__) {
 
 const SearchBarComponent = React.createClass({
     getInitialState: function() {
-        return {value: 'What is the capital of Greece?'};
+        return {value: 'Which recipients of the Victoria Cross died in the Battle of Arnhem?'};
     },
     submitClicked: function() {
+        this.sendSubmitEvent();
+    },
+    handleChange: function(event) {
+        this.setState({value: event.target.value});
+    },
+    sendSubmitEvent: function() {
         var e = new Event('submit', {
             view: window,
             bubbles: true,
@@ -20,9 +26,7 @@ const SearchBarComponent = React.createClass({
         });
         var searchBarNode = this.getDOMNode();
         searchBarNode.dispatchEvent(e);
-    },
-    handleChange: function(event) {
-        this.setState({value: event.target.value});
+    
     },
     render: Template,
 });

@@ -9,10 +9,12 @@ import RdfNodesIdentification from '../RdfNodesIdentification/index.js';
 import ResultPanel from '../ResultPanel/index.js';
 import ProcessingLog from '../ProcessingLog/index.js';
 import SparqlQueryPanel from '../SparqlQueryPanel/index.js';
+import Spinner from '../Spinner/index.js';
 
 const render = function() {
     return (
         <div>
+            <Spinner visible={this.state.loading}/>
             <ResultPanel data={this.state.data}/>
             <SparqlQueryPanel data={this.state.data}/>
             <ProcessingLog data={this.state.data}/>

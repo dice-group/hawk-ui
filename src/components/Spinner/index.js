@@ -1,25 +1,19 @@
 /*
 
 */
-/* global __WEBPACK__ */
 import React from 'react';
 import Template from './template.jsx';
-
 // only load style when using webpack
 if (__WEBPACK__) {
     require('./style.less');
 }
 
-const ResultPanelComponent = React.createClass({
+const SpinnerComponent = React.createClass({
     getInitialState: function() {
-        return {
-            answer: []
-        };
+        return {visible: false};
     },
     componentWillReceiveProps: function(newProps) {
-        this.setState({
-            answer: newProps.data.answer ? newProps.data.answer : []
-        });
+        this.setState({visible: newProps.visible});
     },
     componentWillUpdate: function(nextProps, nextState) {
         this.makeVisible();
@@ -30,4 +24,4 @@ const ResultPanelComponent = React.createClass({
     render: Template,
 });
 
-export default ResultPanelComponent;
+export default SpinnerComponent;

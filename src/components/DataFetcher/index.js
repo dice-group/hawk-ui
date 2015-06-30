@@ -5,7 +5,10 @@ import SuperAgent from 'superagent';
 
 const DataFetcherComponent = React.createClass({
     getInitialState: function() {
-        return {data: ''};
+        return {
+            data: '',
+            loading: false
+        };
     },
     componentDidMount: function() {
         window.addEventListener('submit', this.onChange);
@@ -15,8 +18,9 @@ const DataFetcherComponent = React.createClass({
     },
     onChange: function(event) {
         var query = event.target.querySelector('input[value]').value;
-        //this.getDataFromServer(query);
-        this.getMockupData(query);
+        this.getDataFromServer(query);
+        this.setState({loading: true});
+        //this.getMockupData(query);
     },
     getDataFromServer: function(query) {
         var request = SuperAgent;
@@ -28,7 +32,7 @@ const DataFetcherComponent = React.createClass({
         console.log(token);
         setInterval(() => {
             this.getDataByToken(token);
-        }.bind(this), 10000);
+        }.bind(this), 5000);
     },
     getDataByToken: function(token) {
         var request = SuperAgent;
@@ -43,6 +47,7 @@ const DataFetcherComponent = React.createClass({
             console.log(response);
             var data = JSON.parse(response.text);
             this.setState({data: data});
+            this.checkLoading();
         }
     },
     getMockupData: function(query) {
@@ -52,6 +57,13 @@ const DataFetcherComponent = React.createClass({
         .set('query', query)
         .set('Accept', 'application/json')
         .end(this.statusUpdate);
+    },
+    checkLoading: function() {
+        if(this.state.data.answer == undefined) {
+            this.setState({loading: true});
+        } else {
+            this.setState({loading: false});
+        }
     },
     render: Template,
 });

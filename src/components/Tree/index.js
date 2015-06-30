@@ -13,7 +13,7 @@ const TreeComponent = React.createClass({
         this.setState({data: newProps.data});
     },
     componentWillUpdate: function(nextProps, nextState) {
-        if(nextState.data.hasOwnProperty('label')) {
+        if(nextState.data && nextState.data.hasOwnProperty('label')) {
             var data = nextState.data;
             this.createTree(data);
         }
