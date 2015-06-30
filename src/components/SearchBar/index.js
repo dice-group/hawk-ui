@@ -10,13 +10,21 @@ if (__WEBPACK__) {
 
 const SearchBarComponent = React.createClass({
     getInitialState: function() {
-        return {value: 'Which recipients of the Victoria Cross died in the Battle of Arnhem?'};
+        return {
+            value: 'Which recipients of the Victoria Cross died in the Battle of Arnhem?'
+        };
     },
     submitClicked: function() {
         this.sendSubmitEvent();
     },
     handleChange: function(event) {
         this.setState({value: event.target.value});
+    },
+    setTheExampleQueryString: function(event) {
+        this.setState({value: event});
+        var searchBarNode = this.getDOMNode();
+        searchBarNode.querySelector('input[value]').value = event;
+        this.sendSubmitEvent();
     },
     sendSubmitEvent: function() {
         var e = new Event('submit', {
@@ -26,7 +34,6 @@ const SearchBarComponent = React.createClass({
         });
         var searchBarNode = this.getDOMNode();
         searchBarNode.dispatchEvent(e);
-    
     },
     render: Template,
 });
