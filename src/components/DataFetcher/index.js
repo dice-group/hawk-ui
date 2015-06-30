@@ -29,10 +29,9 @@ const DataFetcherComponent = React.createClass({
     },
     tokenRetrieved: function(error, response) {
         var token = JSON.parse(response.text);
-        console.log(token);
-        setInterval(() => {
-            this.getDataByToken(token);
-        }.bind(this), 5000);
+        //clear interval if exists
+        this.stopPollingServer();
+        this.pollServer(token);
     },
     getDataByToken: function(token) {
         var request = SuperAgent;
@@ -44,7 +43,6 @@ const DataFetcherComponent = React.createClass({
         if(error) {
             console.log(error);
         } else {
-            console.log(response);
             var data = JSON.parse(response.text);
             this.setState({data: data});
             this.checkLoading();
@@ -58,11 +56,24 @@ const DataFetcherComponent = React.createClass({
         .set('Accept', 'application/json')
         .end(this.statusUpdate);
     },
+    pollServer: function(token) {
+        var renewalIntervalId = window.setInterval(() => {
+            this.getDataByToken(token);
+        }.bind(this), 5000);
+        this.setState({renewalIntervalId: renewalIntervalId});
+        console.log("ping");
+    },
+    stopPollingServer: function() {
+        if(this.state.renewalIntervalId > 0) {
+            window.clearInterval(this.state.renewalIntervalId);
+        }
+    },
     checkLoading: function() {
         if(this.state.data.answer == undefined) {
             this.setState({loading: true});
         } else {
             this.setState({loading: false});
+            this.stopPollingServer();
         }
     },
     render: Template,
