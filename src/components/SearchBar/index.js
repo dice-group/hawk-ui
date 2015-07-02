@@ -14,6 +14,22 @@ const SearchBarComponent = React.createClass({
             value: 'Which recipients of the Victoria Cross died in the Battle of Arnhem?'
         };
     },
+    useThisExample: function(event) {
+      var exampleQuery = event.target.innerHTML;
+      var searchBarNode = this.getDOMNode();
+      //OMG IT'S getting weirD!
+      event.target.parentElement.parentElement.parentElement.classList.remove("open");
+      searchBarNode.querySelector('input[value]').value = exampleQuery;
+      this.toggleExampleList();
+    },
+    toggleExampleList: function(event) {
+      var buttonGroup = event.target.parentElement;
+      if(buttonGroup.classList.contains("open")) {
+        buttonGroup.classList.remove("open");
+      } else {
+        buttonGroup.classList.add("open");
+      }
+    },
     handleEnter: function(event) {
         if(event.keyCode == 13) {
             event.preventDefault();
