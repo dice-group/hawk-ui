@@ -1,14 +1,24 @@
-import React from 'react';
+import React from 'react/addons';
 
 const render = function() {
+    var cx = React.addons.classSet;
+    var collapsableClasses = cx({
+      'panel-collapse': true,
+      'collapse': true,
+      'in': this.state.isCollapsed
+    });
     return (
-        <div className="row CollapsablePanel-component">
-            <h2 className={this.props.isSpecial ? 'CollapsablePanel-component-header-special' : 'CollapsablePanel-component-header'} onClick={this.togglePanel}>
-                {this.props.header}
-            </h2>
-            <div className={this.state.isCollapsed ? 'CollapsablePanel-component-collapsed' : ''}>
-                {this.props.children}
+        <div className="panel panel-default">
+          <div className="panel-heading">
+            <h4 className="panel-title">
+              <a role="button" data-toggle="collapse" className="collapsed" onClick={this.togglePanel}>{this.props.header}</a>
+            </h4>
+          </div>
+          <div className={collapsableClasses} role="tabpanel">
+            <div className="panel-body">
+              {this.props.children}
             </div>
+          </div>
         </div>
     );
 };

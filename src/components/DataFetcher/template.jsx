@@ -13,7 +13,7 @@ import Spinner from '../Spinner/index.js';
 
 const render = function() {
     return (
-        <div>
+        <div className="panel-group row">
             <Spinner visible={this.state.loading}/>
             <ResultPanel data={this.state.data}/>
             <NamedEntitiesComponent data={this.state.data}/>

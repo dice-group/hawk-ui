@@ -13,17 +13,14 @@ const CollapsablePanelComponent = React.createClass({
             isCollapsed: false
         };
     },
-    togglePanel: function() {
+    togglePanel: function(event) {
         this.setState({
             isCollapsed: !this.state.isCollapsed
         });
     },
     componentDidMount: function() {
-        this.setState({
-            isCollapsed: true
-        });
         if(this.props.isSpecial) {
-            setTimeout(() => this.setState({isCollapsed: false}), 10000);
+            setTimeout(() => this.setState({isCollapsed: true}), 10000);
         }
     },
     render: Template,
