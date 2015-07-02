@@ -19,8 +19,8 @@ const DataFetcherComponent = React.createClass({
     onChange: function(event) {
         console.log("event triggered");
         var query = event.target.querySelector('input[value]').value;
-        this.setState({loading: true});
         this.getDataFromServer(query);
+        this.setState({loading: true});
         //this.getMockupData(query);
     },
     getDataFromServer: function(query) {
