@@ -23,7 +23,7 @@ const render = function() {
                     </div>
                     <input type="text" className="form-control" value={value} onKeyDown={this.handleEnter} onChange={this.handleChange} size="120"/>
                     <div className="input-group-btn">
-                      <button type="button" onClick={this.submitClicked} className="btn btn-default">
+                      <button type="button" onClick={this.submitClicked} className="btn btn-primary">
                         Search
                       </button>
                     </div>
