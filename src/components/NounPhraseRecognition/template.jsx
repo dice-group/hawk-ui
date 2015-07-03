@@ -1,5 +1,4 @@
 import React from 'react';
-import NounPhrase from '../NounPhrase/index.js';
 import CollapsablePanel from '../CollapsablePanel/index.js';
 import FeedbackPane from '../FeedbackPane/index.js';
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import RdfNode from '../RdfNode/index.js';
 import Tree from '../Tree/index.js';
 import CollapsablePanel from '../CollapsablePanel/index.js';
 import FeedbackPane from '../FeedbackPane/index.js';
