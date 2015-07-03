@@ -4,6 +4,14 @@
         {
             "key": "CoquetteProductions",
             "value": "http://dbpedia.org/resource/Coquette_Productions"
+        },
+        {
+            "key": "CoquetteProductions",
+            "value": "http://dbpedia.org/resource/Coquette_Productions"
+        },
+        {
+            "key": "CoquetteProductions",
+            "value": "http://dbpedia.org/resource/Coquette_Productions"
         }
     ],
     "combined_nouns": [
@@ -249,7 +257,7 @@
             "value": 426
         }, {
            "label": "Cardinality of question results",
-           "value": 1 
+           "value": 1
         }
     ],
     "final_sparql_base64": "U0VMRUNUIERJU1RJTkNUID9wcm9qIFdIRVJFIHsNCj9jb25zdCB0ZXh0OnF1ZXJ5ICg8aHR0cDovL2RicGVkaWEub3JnL29udG9sb2d5L2Fic3RyYWN0PiAnInByb2R1Y3Rpb24gY29tcGFueSIgQU5EICJUViBzZXJpZXMgRnJpZW5kcyInIDEwMDApLiANCj9jb25zdCA8aHR0cDovL2RicGVkaWEub3JnL29udG9sb2d5L3N0YXJyaW5nPiA/cHJvai4gDQo/cHJvaiA/cGJyaWRnZSA8aHR0cDovL2RicGVkaWEub3JnL3Jlc291cmNlL0NvcXVldHRlX1Byb2R1Y3Rpb25zPi4gDQp9DQpMSU1JVCAxPg==",

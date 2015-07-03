@@ -32,3 +32,4 @@ require('./component-collapsablePanel.jsx');
 require('./component-processingLog.jsx');
 require('./component-sparqlQueryPanel.jsx');
 require('./component-spinner.jsx');
+require('./component-feedbackPane.jsx');
