@@ -3,6 +3,7 @@
 import React from 'react';
 import Template from './template.jsx';
 import generatedChannel from './store.js';
+import Postal from 'postal';
 
 // only load style when using webpack
 if (__WEBPACK__) {
@@ -10,15 +11,27 @@ if (__WEBPACK__) {
 }
 
 const SearchBarComponent = React.createClass({
+  queryInput: {},
+  dropdownMenu: {},
   getInitialState: function() {
     generatedChannel.subscribe('searchbar.entry.clicked', this.onSearchBarEntryClicked);
     return {
       value: 'Which recipients of the Victoria Cross died in the Battle of Arnhem?'
     };
   },
+  componentDidMount: function() {
+    this.queryInput = document.getElementById("SearchBarQueryInput");
+    this.dropdownMenu = document.getElementById("SearchBarDropdownMenu");
+  },
+  getQueryInputValue: function() {
+    return this.queryInput.value;
+  },
+  setQueryInputValue: function(value) {
+    this.queryInput.value = value;
+  },
   onSearchBarEntryClicked: function(data) {
-    document.getElementById("SearchBarDropdownMenu").classList.remove("open");
-    document.getElementById("SearchBarQueryInput").value = data.exampleQuery;
+    this.dropdownMenu.classList.remove("open");
+    this.setQueryInputValue(data.exampleQuery);
   },
   useThisExample: function(event) {
     var exampleQuery = event.target.innerHTML;
@@ -27,41 +40,33 @@ const SearchBarComponent = React.createClass({
     });
   },
   toggleExampleList: function(event) {
-    var buttonGroup = event.target.parentElement;
-    if(buttonGroup.classList.contains("open")) {
-      buttonGroup.classList.remove("open");
+    if(this.dropdownMenu.classList.contains("open")) {
+      this.dropdownMenu.classList.remove("open");
     } else {
-      buttonGroup.classList.add("open");
+      this.dropdownMenu.classList.add("open");
     }
   },
-  handleEnter: function(event) {
-    if(event.keyCode == 13) {
+  handleKeyDown: function(event) {
+    if(event.key === 'Enter') {
       event.preventDefault();
-      var searchBarNode = this.getDOMNode();
-      searchBarNode.querySelector('input[value]').value = event.target.value;
-      this.sendSubmitEvent();
+      this.setQueryInputValue(event.target.value);
+      this.publishQueryMessage();
     }
   },
   submitClicked: function() {
-    this.sendSubmitEvent();
+    this.publishQueryMessage();
   },
   handleChange: function(event) {
     this.setState({value: event.target.value});
   },
-  setTheExampleQueryString: function(event) {
-    this.setState({value: event});
-    var searchBarNode = this.getDOMNode();
-    searchBarNode.querySelector('input[value]').value = event;
-    this.sendSubmitEvent();
-  },
-  sendSubmitEvent: function() {
-    var e = new Event('submit', {
-      view: window,
-      bubbles: true,
-      cancelable: true
+  publishQueryMessage: function() {
+    Postal.publish({
+      channel: "query",
+      topic: "input.submit",
+      data: {
+        query: this.getQueryInputValue()
+      }
     });
-    var searchBarNode = this.getDOMNode();
-    searchBarNode.dispatchEvent(e);
   },
   render: Template,
 });
