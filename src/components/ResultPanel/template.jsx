@@ -7,9 +7,11 @@ const render = function() {
     return (
         <div className="ResultPanel-component">
             <CollapsablePanel isSpecial={true} header={'Results'}>
-                {this.state.answer.map((it, idx) => {
-                    return <Answer key={'answk_'+idx} data={it}/>;
-                })}
+                <div className="panel-group">
+                  {this.state.answer.map((it, idx) => {
+                      return <Answer key={'answk_'+idx} data={it}/>;
+                  })}
+                </div>
             </CollapsablePanel>
         </div>
     );

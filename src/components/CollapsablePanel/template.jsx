@@ -15,7 +15,7 @@ const render = function() {
             </h4>
           </div>
           <div className={collapsableClasses} role="tabpanel">
-            <div className="panel-body">
+            <div className="">
               {this.props.children}
             </div>
           </div>

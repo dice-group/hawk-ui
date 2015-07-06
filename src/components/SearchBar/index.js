@@ -11,7 +11,7 @@ if (__WEBPACK__) {
 
 const SearchBarComponent = React.createClass({
   getInitialState: function() {
-    generatedChannel.subscribe('SearchBarEntryClicked', this.onSearchBarEntryClicked);
+    generatedChannel.subscribe('searchbar.entry.clicked', this.onSearchBarEntryClicked);
     return {
       value: 'Which recipients of the Victoria Cross died in the Battle of Arnhem?'
     };
@@ -22,7 +22,7 @@ const SearchBarComponent = React.createClass({
   },
   useThisExample: function(event) {
     var exampleQuery = event.target.innerHTML;
-    generatedChannel.publish('SearchBarEntryClicked', {
+    generatedChannel.publish('searchbar.entry.clicked', {
       exampleQuery: exampleQuery
     });
   },
