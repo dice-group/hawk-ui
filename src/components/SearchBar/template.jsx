@@ -23,7 +23,7 @@ const render = function() {
                     </div>
                     <input id="SearchBarQueryInput" type="text" className="form-control SearchBar-component-input" value={value} onKeyDown={this.handleKeyDown} onChange={this.handleChange} size="120"/>
                     <div className="input-group-btn">
-                      <span className="SearchBar-component-speech-icon" data-toggle="tooltip" title="Search by voice"></span>
+                      <span id="SearchBarSpeechRecognitionIcon" className="SearchBar-component-speech-icon" data-toggle="tooltip" title="Search by voice" onClick={this.searchByVoice}></span>
                       <button type="button" onClick={this.submitClicked} className="btn btn-primary">
                         Search
                       </button>

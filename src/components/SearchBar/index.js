@@ -22,6 +22,11 @@ const SearchBarComponent = React.createClass({
   componentDidMount: function() {
     this.queryInput = document.getElementById("SearchBarQueryInput");
     this.dropdownMenu = document.getElementById("SearchBarDropdownMenu");
+    //check if user has window.webkitSpeechRecognition
+    if(!('webkitSpeechRecognition' in window)) {
+      var speechRecognitionIcon = document.getElementById("SearchBarSpeechRecognitionIcon");
+      speechRecognitionIcon.hidden = true;
+    }
   },
   getQueryInputValue: function() {
     return this.queryInput.value;
@@ -67,6 +72,9 @@ const SearchBarComponent = React.createClass({
         query: this.getQueryInputValue()
       }
     });
+  },
+  searchByVoice: function() {
+    debugger;
   },
   render: Template,
 });
