@@ -21,8 +21,9 @@ const render = function() {
                         <li><a href="#" onClick={this.useThisExample}>Which recipients of the Victoria Cross died in the Battle of Arnhem?</a></li>
                       </ul>
                     </div>
-                    <input id="SearchBarQueryInput" type="text" className="form-control" value={value} onKeyDown={this.handleKeyDown} onChange={this.handleChange} size="120"/>
+                    <input id="SearchBarQueryInput" type="text" className="form-control SearchBar-component-input" value={value} onKeyDown={this.handleKeyDown} onChange={this.handleChange} size="120"/>
                     <div className="input-group-btn">
+                      <span className="SearchBar-component-speech-icon" data-toggle="tooltip" title="Search by voice"></span>
                       <button type="button" onClick={this.submitClicked} className="btn btn-primary">
                         Search
                       </button>
