@@ -4,6 +4,7 @@ import React from 'react';
 import Template from './template.jsx';
 import generatedChannel from './store.js';
 import Postal from 'postal';
+import JSPath from 'jspath';
 
 // only load style when using webpack
 if (__WEBPACK__) {
@@ -13,8 +14,10 @@ if (__WEBPACK__) {
 const SearchBarComponent = React.createClass({
   queryInput: {},
   dropdownMenu: {},
+  speechRecognitionIcon: {},
   getInitialState: function() {
     generatedChannel.subscribe('searchbar.entry.clicked', this.onSearchBarEntryClicked);
+    generatedChannel.subscribe('searchbar.speechrecognition.newvalue', this.onSpeechRecognitionNewValue);
     return {
       value: 'Which recipients of the Victoria Cross died in the Battle of Arnhem?'
     };
@@ -22,10 +25,10 @@ const SearchBarComponent = React.createClass({
   componentDidMount: function() {
     this.queryInput = document.getElementById("SearchBarQueryInput");
     this.dropdownMenu = document.getElementById("SearchBarDropdownMenu");
+    this.speechRecognitionIcon = document.getElementById("SearchBarSpeechRecognitionIcon");
     //check if user has window.webkitSpeechRecognition
     if(!('webkitSpeechRecognition' in window)) {
-      var speechRecognitionIcon = document.getElementById("SearchBarSpeechRecognitionIcon");
-      speechRecognitionIcon.hidden = true;
+      this.speechRecognitionIcon.hidden = true;
     }
   },
   getQueryInputValue: function() {
@@ -37,6 +40,10 @@ const SearchBarComponent = React.createClass({
   onSearchBarEntryClicked: function(data) {
     this.dropdownMenu.classList.remove("open");
     this.setQueryInputValue(data.exampleQuery);
+  },
+  onSpeechRecognitionNewValue: function(data) {
+    this.setQueryInputValue(data.speechRecognitionResults);
+    this.publishQueryMessage();
   },
   useThisExample: function(event) {
     var exampleQuery = event.target.innerHTML;
@@ -74,7 +81,26 @@ const SearchBarComponent = React.createClass({
     });
   },
   searchByVoice: function() {
-    debugger;
+    var recognition = new webkitSpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = false;
+
+    recognition.onstart = function(event) {
+      this.speechRecognitionIcon.classList.add("SearchBar-component-blink");
+    }.bind(this);
+
+    recognition.onend = function(event) {
+      this.speechRecognitionIcon.classList.remove("SearchBar-component-blink");
+    }.bind(this);
+
+    recognition.onresult = function(event) {
+      var speechRecognitionResults = JSPath.apply('.results..transcript', event).join(' ');
+      generatedChannel.publish('searchbar.speechrecognition.newvalue', {
+        speechRecognitionResults: speechRecognitionResults
+      });
+    };
+
+    recognition.start();
   },
   render: Template,
 });
